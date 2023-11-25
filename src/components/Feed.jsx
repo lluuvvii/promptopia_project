@@ -48,8 +48,8 @@ const Feed = () => {
 
     // debounce method
     setSearchTimeOut(setTimeout(() => {
-      const searchResult = filterPrompts(e.target.value)
-      setSearchResult(searchResult)
+      const result = filterPrompts(e.target.value)
+      setSearchResult(result)
     }, 500))
   }
 
@@ -68,11 +68,9 @@ const Feed = () => {
       </form>
 
       {/* All Prompts */}
-      {
-        searchText
-          ? <PromptCardList data={searchResult} handleTagClick={handleTagClick} />
-          : <PromptCardList data={posts} handleTagClick={handleTagClick} />
-      }
+      {searchText
+        ? (<PromptCardList data={searchResult} handleTagClick={handleTagClick} />)
+        : (<PromptCardList data={posts} handleTagClick={handleTagClick} />)}
     </section>
   )
 }

@@ -25,7 +25,7 @@ const MyProfile = () => {
     if (session?.user.id) {
       fetchPosts()
     }
-  }, [session])
+  }, [session?.user.id])
 
   const handleEdit = (post) => {
     console.log(post)

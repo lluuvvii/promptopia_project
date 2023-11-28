@@ -3,9 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter, useSearchParams } from 'next/navigation'
-
 import Form from '@components/Form'
-import { data } from 'autoprefixer'
 
 const EditPrompt = () => {
   const router = useRouter()
@@ -23,14 +21,14 @@ const EditPrompt = () => {
     const getPromptDetails = async () => {
       const response = await fetch(`/api/prompt${promptId}`)
       const data = await response.json()
+
+      setPost({
+        prompt: data.prompt,
+        tag: data.tag
+      })
     }
 
-    setPost({
-      prompt: data.prompt,
-      tag: data.tag
-    })
-
-    if(promptId){
+    if (promptId) {
       getPromptDetails()
     }
   }, [promptId])
@@ -38,7 +36,7 @@ const EditPrompt = () => {
   const updatePrompt = async (e) => {
     e.preventDefault()
 
-    if(!promptId){
+    if (!promptId) {
       return alert('Prompt ID not found')
     }
 

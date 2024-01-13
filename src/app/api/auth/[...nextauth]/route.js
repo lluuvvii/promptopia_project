@@ -13,7 +13,8 @@ const handler = NextAuth({
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      authorization: 'https://accounts.google.com/o/oauth2/auth?prompt=select_account'
     })
   ],
   callbacks: {

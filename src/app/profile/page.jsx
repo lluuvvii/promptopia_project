@@ -12,8 +12,6 @@ const MyProfile = () => {
 
   const [posts, setPosts] = useState([])
 
-  console.log(session)
-
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch(`/api/users/${session?.user.id}/posts`)
@@ -28,14 +26,12 @@ const MyProfile = () => {
   }, [session?.user.id])
 
   const handleEdit = (post) => {
-    console.log(post)
     router.push(`/update-prompt?id=${post._id}`)
   }
 
   const handleDelete = async (post) => {
     const hasConfirmed = confirm('Are you sure you want to delete this prompt?')
 
-    console.log(post)
 
     if (hasConfirmed) {
       try {

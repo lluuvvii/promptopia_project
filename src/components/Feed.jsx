@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import PromptCard from './PromptCard'
 
 export const PromptCardList = ({ data, handleTagClick }) => {
-  console.log(data)
 
   return (
     <div className='mt-16 prompt_layout'>

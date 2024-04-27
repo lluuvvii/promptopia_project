@@ -31,12 +31,12 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           <Image src={post.creator.image} alt='user_image' width={40} height={40} className='rounded-full object-contain' />
 
           <div className='flex flex-col'>
-            <h3 className='font-satoshi font-semibold text-gray-900'>
+            <h3 className='font-satoshi font-semibold text-white'>
               {post.creator.username}
             </h3>
             {
               session?.user.id === post.creator._id && pathName === '/profile' &&
-              <p className='font-inter text-sm text-gray-500'>
+              <p className='font-inter text-sm text-gray-300'>
                 {post.creator.email}
               </p>
             }
@@ -49,12 +49,12 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         </div>
       </div>
 
-      <p className='my-4 font-satoshi text-sm text-gray-700'>{post.prompt}</p>
-      <p className='font-inter text-sm blue_gradient cursor-pointer' onClick={() => handleTagClick && handleTagClick(post.tag)}>#{post.tag}</p>
+      <p className='my-4 font-satoshi text-sm text-white'>{post.prompt}</p>
+      <p className='font-inter text-sm text-blue-300 cursor-pointer' onClick={() => handleTagClick && handleTagClick(post.tag)}>#{post.tag}</p>
 
       {
         session?.user.id === post.creator._id && pathName === '/profile' &&
-        <div className='mt-5 flex-center gap-4 border-t border-gray-100 pt-3'>
+        <div className='mt-5 flex-center gap-4 border-t border-gray-500 pt-3'>
           <p className='font-inter text-sm green_gradient cursor-pointer' onClick={() => handleEdit()}>Edit</p>
           <p className='font-inter text-sm orange_gradient cursor-pointer' onClick={() => handleDelete()}>Delete</p>
         </div>

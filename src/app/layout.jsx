@@ -5,7 +5,7 @@ import Provider from '@components/Provider'
 import { Suspense } from 'react'
 
 export const metadata = {
-  title: 'Promptopia',
+  title: 'Go Promptopia',
   description: 'Discover & Share AI Prompts'
 }
 

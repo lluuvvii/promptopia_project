@@ -76,7 +76,7 @@ const Feed = () => {
       {/* Skeleton */}
       {loading
         ? (
-          <div className='items-center justify-center'>
+          <div className='items-center justify-center text-white'>
             Loading...
           </div>
         )

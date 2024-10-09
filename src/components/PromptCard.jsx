@@ -13,9 +13,9 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   const [copied, setCopied] = useState('')
 
   const handleProfileClick = () => {
-    if (post.creator._id.toString() === session?.user.id.toString()) return router.push("/profile")
+    if (post?.creator?._id.toString() === session?.user.id.toString()) return router.push("/profile")
 
-    router.push(`/profile/${post.creator._id}?name=${post.creator.username}`)
+    router.push(`/profile/${post.creator?._id}?name=${post.creator?.username}`)
   }
 
   const handleCopy = () => {
@@ -35,7 +35,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
               {post?.creator?.username}
             </h3>
             {
-              session?.user.id === post.creator._id && pathName === '/profile' &&
+              session?.user.id === post.creator?._id && pathName === '/profile' &&
               <p className='font-inter text-sm text-gray-300'>
                 {post?.creator?.email}
               </p>
@@ -53,7 +53,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
       <p className='font-inter text-sm text-blue-300 cursor-pointer' onClick={() => handleTagClick && handleTagClick(post.tag)}>#{post.tag}</p>
 
       {
-        session?.user.id === post.creator._id && pathName === '/profile' &&
+        session?.user.id === post.creator?._id && pathName === '/profile' &&
         <div className='mt-5 flex-center gap-4 border-t border-gray-500 pt-3'>
           <p className='font-inter text-sm green_gradient cursor-pointer' onClick={() => handleEdit()}>Edit</p>
           <p className='font-inter text-sm orange_gradient cursor-pointer' onClick={() => handleDelete()}>Delete</p>
